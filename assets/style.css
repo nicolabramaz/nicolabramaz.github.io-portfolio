@@ -1,0 +1,346 @@
+@import url(fonts.css);
+:root {
+    --InriaSerif: "Inria Serif", serif;
+    --InriaSans: "Inria Sans", sans-serif;
+    --TextNormal: 400;
+    --TextBold: 700;
+    --ColorFirst: #3fe0d0;
+    --ColorFirstSecond: #00fff3;
+    --ColorSecond: #3f87e0;
+    --ColorText: #333;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: "Inria Serif", serif;
+    font-weight: var(--TextNormal);
+    font-style: normal;
+    color: var(--ColorText);
+}
+
+small, footer {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: var(--TextNormal);
+    font-style: normal;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+small.background {
+    background-color: var(--ColorFirst);
+    padding: 5px 10px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--ColorSecond);
+}
+
+a:hover {
+    color: #333;
+}
+
+a.button {
+    display: inline-flex;
+    padding: 5px 10px;
+    background-color: var(--ColorSecond);
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+}
+
+a:hover.button {
+    background-color: var(--ColorFirst);
+    color: #333;
+}
+
+/* Colonne à droit */
+.left-col {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 15px 10px;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.logo img {
+    border-radius: 50%;
+}
+
+.intro-text {
+    font-size: 1.5rem;
+}
+
+.intro-text p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.intro-text a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .contenu {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+  }
+  .contenu > p {
+    font-family: var(--InriaSans);
+    font-size: 1.2rem;
+    color: #333;
+  }
+  .contenu > p > a {
+    display: inline;
+    font-size: 1.2rem;
+    color: var(--ColorSecond);
+  }
+  .fermer {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .fermer:hover,
+  .fermer:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+footer > .social > ul {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+
+footer li a {
+    font-size: 3rem;
+}
+
+.copyright small {
+    font-size: 0.65rem;
+}
+
+/* Colonne à gauche */
+
+/* Navigation */
+nav {
+    position: absolute;
+    z-index: 2;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 30px;
+    text-align: right;
+}
+  
+nav ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+nav a {
+    font-size: 2.8rem;
+    font-weight: var(--TextBold);
+    color: white;
+    text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000, 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--ColorFirstSecond);
+}
+
+nav a.active {
+    transform: scale(1.2);
+}
+
+/* Menu */
+.menu-container {
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    max-height: 300px;
+    overflow: hidden;
+    position: relative;
+    scroll-behavior: smooth;
+    scroll-padding-right: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.menu::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Menu Controls */
+.menu-controls {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    }
+
+.prev-btn,
+.next-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000, 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+}
+
+.pagination span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 5px 0;
+    cursor: pointer;
+    box-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000, 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.pagination span.active {
+    background-color: var(--ColorFirst);
+}
+
+.right-col {
+    width: 70%;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.cover-image {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    object-position: top;
+}
+
+.image-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    text-align: center;
+}
+
+.caption {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    padding: 25px 30px;
+    width: 600px;
+    z-index: 2;
+    background-color: white;
+    text-align: left;
+}
+
+.caption > h2 {
+    margin-top: 0;
+}
+
+.caption > p {
+    font-size: 1.2rem;
+}
+
+.caption i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 767px) {
+    .caption {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    nav {
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-right: 0;
+    }
+
+    .caption {
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 15px;
+    }
+  }
+  
